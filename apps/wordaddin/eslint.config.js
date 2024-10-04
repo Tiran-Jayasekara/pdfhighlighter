@@ -1,28 +1,12 @@
-// eslint.config.js
-const { defineConfig } = require('eslint-define-config');
+const nx = require('@nx/eslint-plugin');
+const baseConfig = require('../../eslint.config.js');
 
-module.exports = defineConfig({
-  extends: [
-    'plugin:@nx/react',
-    './.eslintrc.json',  // Ensure the path is correct
-    'plugin:office-addins/react',
-  ],
-  ignorePatterns: ['!**/*'],
-  parserOptions: {
-    project: 'tsconfig.base.json',
+module.exports = [
+  ...baseConfig,
+  ...nx.configs['flat/react'],
+  {
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    // Override or add rules here
+    rules: {},
   },
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
-      rules: {},
-    },
-    {
-      files: ['*.ts', '*.tsx'],
-      rules: {},
-    },
-    {
-      files: ['*.js', '*.jsx'],
-      rules: {},
-    },
-  ],
-});
+];
