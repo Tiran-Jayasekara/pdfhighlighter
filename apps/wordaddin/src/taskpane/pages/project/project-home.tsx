@@ -1,7 +1,9 @@
 import { Paper, Stack } from "@my-workspace/packages-atoms";
 import { useTranslation } from "react-i18next";
 import { ActionBar } from "@my-workspace/packages-molecules";
-import { PromptBar, ConversationBar } from "../../components/index";
+import { PromptBar, 
+  // EditorPage, 
+  ConversationBar } from "../../components/index";
 import { ReferencePage, UploadSourcePage } from "@my-workspace/packages-organisms";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useMetaDataStore, useUploadSourceStore } from "@my-workspace/packages-zustand";

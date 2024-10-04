@@ -74,7 +74,7 @@ function eventHandler(arg :any) {
 }
 
 export function openDialog(
-  HTMLUrl: string,
+  HTMLUrl :any,
   options: Office.DialogOptions,
   messageHandler?: (arg: object, dialog: { close: () => void }) => void
 ) {

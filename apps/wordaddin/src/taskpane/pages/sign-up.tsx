@@ -1,5 +1,5 @@
 import { redirectToPage } from "../../utils";
-import { signUp } from "@my-workspace/api";
+import { signUp } from "@my-workspace/packages-api";
 import logo from "../../../assets/logo.png";
 import {
   Button,

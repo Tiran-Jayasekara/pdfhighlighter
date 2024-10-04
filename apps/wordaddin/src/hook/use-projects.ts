@@ -4,7 +4,7 @@ import useLocalStorage from "./use-local-storage";
 function useProjects(userId: string) {
   const [projects, setProjects] = useLocalStorage("projects", []);
 
-  const createProject = (project:any) => {
+  const createProject = (project :any) => {
     setProjects([...projects, project]);
     return project;
   };

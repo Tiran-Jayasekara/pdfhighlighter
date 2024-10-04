@@ -22,13 +22,13 @@ const VerifyAccountPage = () => {
     otp: yup.string().required(t("form.otp.required")),
   });
 
-  const handleSubmit = useCallback(
-    async (data: FormData) => {
-      // await confirmSignUp(username, data.otp);
-      redirectToPage("sign-in");
-    },
-    [username]
-  );
+  // const handleSubmit = useCallback(
+  //   async (data: FormData) => {
+  //     await confirmSignUp(username, data.otp);
+  //     redirectToPage("sign-in");
+  //   },
+  //   [username]
+  // );
 
   const [countdown, setCountdown] = useState(0);
   useEffect(() => {
@@ -40,26 +40,26 @@ const VerifyAccountPage = () => {
     return () => clearInterval(timer);
   }, [countdown]);
 
-  const handleResendClick = useCallback(async () => {
-    // await resendAccountActivationCode(username);
-    setCountdown(60);
-  }, [username]);
+  // const handleResendClick = useCallback(async () => {
+  //   await resendAccountActivationCode(username);
+  //   setCountdown(60);
+  // }, [username]);
 
 
   const methods = useForm({
     resolver: yupResolver(verifyAccountSchema),
   });
 
-  const onSubmitWrapper = async (data: FormData) => {
-    methods.clearErrors();
-    try {
-      await handleSubmit(data);
-    } catch (e) {
-      if (e instanceof Error) {
-        methods.setError("root", { message: e.message });
-      }
-    }
-  };
+  // const onSubmitWrapper = async (data: FormData) => {
+  //   methods.clearErrors();
+  //   try {
+  //     await handleSubmit(data);
+  //   } catch (e) {
+  //     if (e instanceof Error) {
+  //       methods.setError("root", { message: e.message });
+  //     }
+  //   }
+  // };
 
   return (
     <Stack width={"100%"} height={"100%"} direction={"row"} justifyContent={"center"} alignItems={"center"}>
@@ -76,7 +76,9 @@ const VerifyAccountPage = () => {
                 {methods.formState.errors.root ? (
                   <Typography variant="caption">{methods.formState.errors.root.message}</Typography>
                 ) : null}
-                <form onSubmit={methods.handleSubmit(onSubmitWrapper)}>
+                <form
+                // onSubmit={methods.handleSubmit(onSubmitWrapper)}
+                >
                   <Stack direction={"column"}>
                     {verifyPasswordFields.map((field) => (
                       <StyledBox key={field.id} variant="primary">
@@ -97,7 +99,7 @@ const VerifyAccountPage = () => {
                       {t("having_trouble")}{" "}
                       {countdown <= 0 ? (
                         <Link
-                          onClick={handleResendClick}
+                          // onClick={handleResendClick}
                           sx={{
                             cursor: countdown > 0 ? "not-allowed" : "pointer",
                             pointerEvents: countdown > 0 ? "none" : "auto",

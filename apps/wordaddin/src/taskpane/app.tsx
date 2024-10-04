@@ -24,9 +24,7 @@ import {
 import { ProtectedPage } from "./components";
 import { FileUploadModal } from "./components/project/file-upload-modal";
 import { ViewSource } from "./pages/view-source";
-import { AddVersion, 
-  // ImportPage, 
-  SavePage, VersionHistory } from "@my-workspace/packages-organisms";
+import { AddVersion, ImportPage, SavePage, VersionHistory } from "@my-workspace/packages-organisms";
 import { AppRoutes } from "@my-workspace/packages-common";
 import { DeleteProjectPrompt } from "./pages/dialogue/delete-project";
 import { ExistingDocPrompt } from "./pages/dialogue/existing-doc";
@@ -68,7 +66,7 @@ const App: React.FC = () => {
                 }
               />
               <Route path={AppRoutes.VIEW_SOURCE} element={<ViewSource />} />
-              {/* <Route path={AppRoutes.IMPORT_PAGE} element={<ImportPage />} /> */}
+              <Route path={AppRoutes.IMPORT_PAGE} element={<ImportPage />} />
               <Route path={AppRoutes.SAVE_PAGE} element={<SavePage />} />
               <Route path={AppRoutes.SYNC_PAGE} element={<SyncPage />} />
               <Route path={AppRoutes.UNSYNC_PAGE} element={<UnsyncPage />} />

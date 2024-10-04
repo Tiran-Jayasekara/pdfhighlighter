@@ -8,5 +8,5 @@ export * from "./unprotected-pages";
 export * from "./project/prompt-bar";
 // export * from "./project/editor-page";
 export * from "./project/conversation-bar";
-// export * from "./project/project-list";
+export * from "./project/project-list";
 export * from "./project/create-project";

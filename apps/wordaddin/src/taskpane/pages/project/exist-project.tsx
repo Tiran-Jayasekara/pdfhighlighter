@@ -7,7 +7,7 @@ import { AppRoutes } from "@my-workspace/packages-common";
 import { useNavigate } from "react-router-dom";
 import { loadFromBase64, setProjectIdProperty } from "../../../commands/commands";
 import useProjects from "../../../hook/use-projects";
-// import { ProjectList } from "../../components";
+import { ProjectList } from "../../components";
 import { ArrowBack } from "@mui/icons-material";
 
 const ExistProject = () => {
@@ -73,22 +73,22 @@ const ExistProject = () => {
   };
 
   // This method for delete Project
-  // const handleProjectDelete =
-  //   (projectId: string) =>
-  //   async ({ message }, dialog) => {
-  //     console.log(projectId);
-  //     dialog.close();
-  //     if (message === "confirm") {
-  //       // deleteProject(projectId);
-  //       projectArchive(projectId);
+  const handleProjectDelete =
+    (projectId: string) =>
+    async ({ message }:any, dialog:any) => {
+      console.log(projectId);
+      dialog.close();
+      if (message === "confirm") {
+        // deleteProject(projectId);
+        projectArchive(projectId);
 
-  //       if (activeProjectId === projectId) {
-  //         // await clearDocument();
-  //         // await deleteProjectIdProperty();
-  //         setProjectIdProperty(null);
-  //       }
-  //     }
-  //   };
+        if (activeProjectId === projectId) {
+          // await clearDocument();
+          // await deleteProjectIdProperty();
+          // setProjectIdProperty(null);
+        }
+      }
+    };
 
   // this project for Archive Project
   const handleProjectArchive = async (projectId: string) => {

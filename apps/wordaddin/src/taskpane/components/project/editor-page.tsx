@@ -5,7 +5,7 @@
 // import { useMetaDataStore, useUploadSourceStore } from "@my-workspace/packages-zustand";
 // import { insertText, createNewEmptyBlock, highlightParagraphById, deleteBlockById } from "@my-workspace/packages-common";
 // import { useMetadataService } from "@my-workspace/packages-api"; 
-// // import DiffMatchPatch from 'diff-match-patch';
+// import DiffMatchPatch from 'diff-match-patch';
 // import { useDialog } from '@my-workspace/packages-common';
 
 // const EditorPage = () => {
@@ -43,10 +43,10 @@
 //     return words.length > 10 ? words.slice(0, 10).join(" ") + "..." : text;
 //   };
 
-//   // const createNewBlock = async () => {
-//   //   const blockId = await createNewEmptyBlock();
-//   //   createBlock(blockId);
-//   // };
+//   const createNewBlock = async () => {
+//     const blockId = await createNewEmptyBlock();
+//     createBlock(blockId);
+//   };
 
 //   // Arrow up function with useCallback
 //   const arrowUp = useCallback(() => {
@@ -96,22 +96,22 @@
 //     }
 //   };
 
-//   // const dmp = new DiffMatchPatch();
-//   // const highlightChanges = (original: string, modified: string) => {
-//   //   const diffs = dmp.diff_main(original, modified);
-//   //   dmp.diff_cleanupSemantic(diffs);
-//   //   return diffs
-//   //     .map(([type, text]) => {
-//   //       if (type === DiffMatchPatch.DIFF_INSERT) {
-//   //         return `<span style="text-decoration: underline; text-decoration-color: red;">${text}</span>`;
-//   //       }
-//   //       if (type === DiffMatchPatch.DIFF_DELETE) {
-//   //         return `<span style="text-decoration: line-through; text-decoration-color: red;">${text}</span>`;
-//   //       }
-//   //       return text;
-//   //     })
-//   //     .join("");
-//   // };
+//   const dmp = new DiffMatchPatch();
+//   const highlightChanges = (original: string, modified: string) => {
+//     const diffs = dmp.diff_main(original, modified);
+//     dmp.diff_cleanupSemantic(diffs);
+//     return diffs
+//       .map(([type, text]) => {
+//         if (type === DiffMatchPatch.DIFF_INSERT) {
+//           return `<span style="text-decoration: underline; text-decoration-color: red;">${text}</span>`;
+//         }
+//         if (type === DiffMatchPatch.DIFF_DELETE) {
+//           return `<span style="text-decoration: line-through; text-decoration-color: red;">${text}</span>`;
+//         }
+//         return text;
+//       })
+//       .join("");
+//   };
 
 //   const calculateSimilarity = (text1: string, text2: string) => {
 //     const diffs = dmp.diff_main(text1, text2);

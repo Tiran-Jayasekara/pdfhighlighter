@@ -1,4 +1,4 @@
-export function eventHandler(arg:any, onClose?: () => void) {
+export function eventHandler(arg :any, onClose?: () => void) {
     // In addition to general system errors, there are 2 specific errors
     // and one event that you can handle individually.
 
@@ -23,12 +23,12 @@ export function eventHandler(arg:any, onClose?: () => void) {
 
   export function getSliceAsync(
     file: Office.File,
-    nextSlice :any,
-    sliceCount:any,
-    gotAllSlices:any,
-    docdataSlices:any,
-    slicesReceived:any,
-    callback:any
+    nextSlice: number,
+    sliceCount: number,
+    gotAllSlices: boolean,
+    docdataSlices: any[],
+    slicesReceived: number,
+    callback: (result: string) => void
   ) {
     file.getSliceAsync(nextSlice, function (sliceResult) {
       if (sliceResult.status === Office.AsyncResultStatus.Succeeded) {
@@ -56,7 +56,7 @@ export function eventHandler(arg:any, onClose?: () => void) {
   }
   
   export function onGotAllSlices(docdataSlices :any, callback :any) {
-    let docdata = <any>[];
+    let docdata: any[] = [];
     for (let i = 0; i < docdataSlices.length; i++) {
       docdata = docdata.concat(docdataSlices[i]);
     }

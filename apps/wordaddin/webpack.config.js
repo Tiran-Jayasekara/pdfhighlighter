@@ -36,26 +36,16 @@ module.exports = async (env, options) => {
         "@my-workspace/packages-interfaces": resolve("../../packages/interfaces/src/index.ts"),
         "@my-workspace/packages-molecules": resolve("../../packages/molecules/src/index.ts"),
         "@my-workspace/packages-organisms": resolve("../../packages/organisms/src/index.ts"),
-        "@my-workspace/packages-zustand": resolve("../../packages/zustand/src/index.ts"),
         "@my-workspace/packages-themes": resolve("../../packages/themes/src/index.ts"),
+        "@my-workspace/packages-zustand": resolve("../../packages/zustand/src/index.ts"),
       },
-      extensions: [".ts", ".tsx", ".html", ".js", ".mjs", ".css"],
+      extensions: [".ts", ".tsx", ".html", ".js", ".css"],
     },
     module: {
       rules: [
         {
           test: /\.pdf$/,
-          use: "file-loader",
-        },
-        {
-          test: /\.m?js$/,
-          exclude: /node_modules/,
-          use: {
-            loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env", "@babel/preset-react"],
-            },
-          },
+          use: 'file-loader',
         },
         {
           test: /\.ts$/,
@@ -85,13 +75,8 @@ module.exports = async (env, options) => {
           },
         },
         {
-          test: /\.css$/,
-          use: ["style-loader", "css-loader"],
-        },
-        {
-          test: /\.mjs$/,
-          include: /node_modules/,
-          type: 'javascript/auto',
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'], // Add this rule
         },
       ],
     },
