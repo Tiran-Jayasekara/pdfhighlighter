@@ -30,14 +30,14 @@ module.exports = async (env, options) => {
     },
     resolve: {
       alias: {
-        "@kelsen-labs/api": resolve("../../packages/api/src/index.ts"),
-        "@kelsen-labs/atoms": resolve("../../packages/atoms/src/index.ts"),
-        "@kelsen-labs/common": resolve("../../packages/common/src/index.ts"),
-        "@kelsen-labs/interfaces": resolve("../../packages/interfaces/src/index.ts"),
-        "@kelsen-labs/molecules": resolve("../../packages/molecules/src/index.ts"),
-        "@kelsen-labs/organisms": resolve("../../packages/organisms/src/index.ts"),
-        "@kelsen-labs/zustand": resolve("../../packages/zustand/src/index.ts"),
-        "@kelsen-labs/themes": resolve("../../packages/themes/src/index.ts"),
+        "@my-workspace/packages-api": resolve("../../packages/api/src/index.ts"),
+        "@my-workspace/packages-atoms": resolve("../../packages/atoms/src/index.ts"),
+        "@my-workspace/packages-common": resolve("../../packages/common/src/index.ts"),
+        "@my-workspace/packages-interfaces": resolve("../../packages/interfaces/src/index.ts"),
+        "@my-workspace/packages-molecules": resolve("../../packages/molecules/src/index.ts"),
+        "@my-workspace/packages-organisms": resolve("../../packages/organisms/src/index.ts"),
+        "@my-workspace/packages-themes": resolve("../../packages/themes/src/index.ts"),
+        "@my-workspace/packages-zustand": resolve("../../packages/zustand/src/index.ts"),
       },
       extensions: [".ts", ".tsx", ".html", ".js", ".css"],
     },
@@ -45,17 +45,7 @@ module.exports = async (env, options) => {
       rules: [
         {
           test: /\.pdf$/,
-          use: "file-loader",
-        },
-        {
-          test: /\.m?js$/,
-          exclude: /node_modules/,
-          use: {
-            loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env", "@babel/preset-react"],
-            },
-          },
+          use: 'file-loader',
         },
         {
           test: /\.ts$/,
@@ -85,8 +75,8 @@ module.exports = async (env, options) => {
           },
         },
         {
-          test: /\.css$/,
-          use: ["style-loader", "css-loader"],
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'], // Add this rule
         },
       ],
     },

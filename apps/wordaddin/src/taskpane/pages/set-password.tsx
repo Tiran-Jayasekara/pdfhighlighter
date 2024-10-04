@@ -1,5 +1,5 @@
-import { Button, Card, StyledBox, FormTextInput, Typography, Container, Stack, Image } from "@kelsen-labs/atoms";
-import { confirmPassword } from "@kelsen-labs/api";
+import { Button, Card, StyledBox, FormTextInput, Typography, Container, Stack, Image } from "@my-workspace/packages-atoms";
+import { confirmPassword } from "@my-workspace/packages-api";
 import { redirectToPage } from "../../utils";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -29,7 +29,7 @@ const SetPasswordPage: React.FC = () => {
     await confirmPassword({
       newPassword: data.password,
       verificationCode: data.code,
-      username,
+      username :"",
     });
     redirectToPage("sign-in");
   }, [username]);

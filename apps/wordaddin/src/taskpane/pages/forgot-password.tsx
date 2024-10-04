@@ -2,14 +2,14 @@ import React, { useCallback, useMemo } from "react";
 import {
   Button,
   Card,
-  // StyledBox,
-  // FormTextInput,
+  StyledBox,
+  FormTextInput,
   Typography,
   Container,
   Stack,
   Image,
-} from "@kelsen-labs/atoms";
-import { initResetPassword } from "@kelsen-labs/api";
+} from "@my-workspace/packages-atoms";
+import { initResetPassword } from "@my-workspace/packages-api";
 import { redirectToPage } from "../../utils";
 import logo from "../../../assets/logo.png";
 import { FormProvider, useForm } from "react-hook-form";
@@ -56,20 +56,20 @@ const ForgotPasswordPage = () => {
     [handleSubmit, methods.clearErrors, methods.setError]
   );
 
-  // const renderedFields = useMemo(
-  //   () =>
-  //     forgotPasswordFields.map((field) => (
-  //       <StyledBox key={field.id} variant="primary">
-  //         <Typography variant="body2">{t(field.translationKey)}</Typography>
-  //         <FormTextInput
-  //           name={field.id}
-  //           placeholder={t(field.placeholder)}
-  //           type={field.type}
-  //         />
-  //       </StyledBox>
-  //     )),
-  //   [t]
-  // );
+  const renderedFields = useMemo(
+    () =>
+      forgotPasswordFields.map((field) => (
+        <StyledBox key={field.id} variant="primary">
+          <Typography variant="body2">{t(field.translationKey)}</Typography>
+          <FormTextInput
+            name={field.id}
+            placeholder={t(field.placeholder)}
+            type={field.type}
+          />
+        </StyledBox>
+      )),
+    [t]
+  );
 
   return (
     <Stack direction={"row"} justifyContent={"center"} alignItems={"center"}>
@@ -83,7 +83,7 @@ const ForgotPasswordPage = () => {
           <Container component="main" maxWidth="md">
             <Card elevation={1}>
               <Image src={logo} alt="logo" />
-              {/* <StyledBox variant="primary" width={"100%"}>
+              <StyledBox variant="primary" width={"100%"}>
                 <Typography variant="h4">{t("reset_password")}</Typography>
                 <Typography variant="body2">{t("get_otp_reset")}</Typography>
                 {methods.formState.errors.root ? (
@@ -105,7 +105,7 @@ const ForgotPasswordPage = () => {
                     </Button>
                   </Stack>
                 </form>
-              </StyledBox> */}
+              </StyledBox>
             </Card>
           </Container>
         </Stack>

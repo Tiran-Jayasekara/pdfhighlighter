@@ -17,7 +17,7 @@ import { useSourceService } from '@my-workspace/packages-api';
 const FetchSources = () => {
   // State to control the visibility of the alert
   const [showAlert, setShowAlert] = useState<boolean>(false);
-
+  const { handleViewSource } = useDialog();
   const fetchSources = useSearchSourceStore(({ fetchSources }) => fetchSources);
   const selectedFiles = useSearchSourceStore(({ selectedFiles }) => selectedFiles);
   const selectAllReadyFiles = useSearchSourceStore(({ selectAllReadyFiles }) => selectAllReadyFiles);
@@ -87,7 +87,7 @@ const FetchSources = () => {
               variant="blueText"
               component="a"
               rel="noopener noreferrer"
-            //   onClick={() => handleViewSource(file)}
+            onClick={() => handleViewSource(file)}
             >
               {file.title}
             </Typography>

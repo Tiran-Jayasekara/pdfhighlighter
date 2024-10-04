@@ -2,7 +2,7 @@ import React from "react";
 import { List, ListItem, ListItemText, Menu, MenuItem, Chip } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { openDialog } from "../../../commands/commands";
-import { Box, IconButton, Typography } from "@kelsen-labs/atoms";
+import { Box, IconButton, Typography } from "@my-workspace/packages-atoms";
 import { useTranslation } from "react-i18next";
 
 type Props = {
@@ -18,7 +18,7 @@ export const ProjectList = ({ projects, onProjectOpen, onProjectDelete, onProjec
 
   const { t } = useTranslation();
 
-  const handleMenuClick = (event, project) => {
+  const handleMenuClick = (event :any, project :any) => {
     setAnchorEl(event.currentTarget);
     setSelectedProject(project);
   };
@@ -30,33 +30,33 @@ export const ProjectList = ({ projects, onProjectOpen, onProjectDelete, onProjec
 
   const handleOpenProject = () => {
     if (!selectedProject) return;
-    onProjectOpen(selectedProject.id);
+    // onProjectOpen(selectedProject.id);
     handleMenuClose();
   };
   const handleArchiveProject = ()=>{
     if (!selectedProject) return;
-    console.log(selectedProject.id);
-    onProjectArchive(selectedProject.id)
+    // console.log(selectedProject.id);
+    // onProjectArchive(selectedProject.id)
     handleMenuClose();
   }
 
-  const handleDeleteProject = async () => {
-    // if (!selectedProject) return;
+  // const handleDeleteProject = async () => {
+  //   // if (!selectedProject) return;
     
-    // Open the delete confirmation dialog
-    openDialog(
-      `https://localhost:3000/taskpane.html?page=delete-dialog`,
-      {
-        promptBeforeOpen: false,
-        displayInIframe: true,
-        width: 48,
-        height: 25,
-      },
-      // Pass the selected project ID to the delete function upon confirmation
-      onProjectDelete(selectedProject.id)
-    );
-    handleMenuClose();
-  };
+  //   // Open the delete confirmation dialog
+  //   openDialog(
+  //     `https://localhost:3000/taskpane.html?page=delete-dialog`,
+  //     {
+  //       promptBeforeOpen: false,
+  //       displayInIframe: true,
+  //       width: 48,
+  //       height: 25,
+  //     },
+  //     // Pass the selected project ID to the delete function upon confirmation
+  //     onProjectDelete(selectedProject.id)
+  //   );
+  //   handleMenuClose();
+  // };
 
   return (
     <div>
@@ -99,7 +99,7 @@ export const ProjectList = ({ projects, onProjectOpen, onProjectDelete, onProjec
         >
           <MenuItem onClick={handleOpenProject}>{t('open_project')}</MenuItem>
           <MenuItem onClick={handleArchiveProject}>{t('archive_project')}</MenuItem>
-          <MenuItem onClick={handleDeleteProject}>{t('delete_project')}</MenuItem>
+          {/* <MenuItem onClick={handleDeleteProject}>{t('delete_project')}</MenuItem> */}
         </Menu>
       </Box>
     </div>
